@@ -9,6 +9,8 @@ import { Post } from './post/post.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  private filterPostName: string;
   
 constructor(private _postDataService : PostDataService){
 
@@ -16,6 +18,14 @@ constructor(private _postDataService : PostDataService){
 
 get posts(): Post[]{
   return this._postDataService.posts;
+}
+
+newPostAdded(recipe){
+  this._postDataService.addNewPost(recipe);
+}
+
+applyFilter(filter:string){
+  this.filterPostName = filter;
 }
 
 

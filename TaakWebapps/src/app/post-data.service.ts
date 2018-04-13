@@ -23,4 +23,8 @@ export class PostDataService {
     return this._posts;
   }
 
+  addNewPost(post) {
+    this._posts = [...this._posts, post];
+  }
+
 }

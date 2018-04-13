@@ -1,0 +1,14 @@
+<div class="ui large form segment">
+  <h3 class="ui header">Add post</h3>
+  <div class="field">
+    <label for="name">Titel:</label>
+    <input id="name" name="name" #newPostTitle>
+  </div>
+  <div class="field">
+    <label for="name">Inhoud</label>
+    <input id="name" name="name" #newPostInhoud>
+  </div>
+  <button (click)="addPost(newPostTitle,newPostInhoud)" class="ui positive right floated button">
+    add post
+  </button>
+</div>
