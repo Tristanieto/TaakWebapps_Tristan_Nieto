@@ -41,11 +41,14 @@
   </div>
 </nav>
 
+<div class="container">
 <div class="ui basic segment">
   <app-add-post (newPost)="newPostAdded($event)"></app-add-post>
 </div>
+
 <div class="ui segment">
   <div class="ui cards">
     <app-post *ngFor='let localPost of posts | postFilter : filterPostName' [_post]='localPost'></app-post>
   </div>
+</div>
 </div>
