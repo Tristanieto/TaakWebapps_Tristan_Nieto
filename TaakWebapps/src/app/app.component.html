@@ -35,7 +35,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search post" #filter>
+      <input (keyup) = 'filterPost$.next($event.target.value)' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search post">
       <button type="button" class="form-control mr-sm-2" (click) = "applyFilter(filter.value)">Search</button>
     </form>
   </div>
