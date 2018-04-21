@@ -48,7 +48,7 @@
 
 <div class="ui segment">
   <div class="ui cards">
-    <app-post *ngFor='let localPost of posts | async | postFilter : filterPostName' [_post]='localPost'></app-post>
+    <app-post *ngFor='let localPost of posts | postFilter : filterPostName' [_post]='localPost'></app-post>
   </div>
 </div>
 </div>

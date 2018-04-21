@@ -26,8 +26,15 @@ export class PostDataService {
 
   }
 
-  // addNewPost(post) {
-  //   this._posts = [...this._posts, post];
-  // }
+  addNewPost(post): Observable<Post> {
+    return this.http
+    .post(this._appUrl, post)
+    .pipe(
+      map(
+        (item: any): Post =>
+        new Post(item.title, item.inhoud)
+      )
+    )
+  }
 
 }

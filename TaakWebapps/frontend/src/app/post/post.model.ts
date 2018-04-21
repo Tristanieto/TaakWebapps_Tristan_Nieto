@@ -10,6 +10,14 @@ export class Post{
         this._dateAdded = new Date();
     }
 
+    toJSON(){
+        return {
+            title: this._title,
+            inhoud: this._inhoud,
+            dateAdded: this._dateAdded
+        }
+    }
+
     get title(): string{
         return this._title
     }
@@ -21,6 +29,8 @@ export class Post{
     get dateAdded(): Date{
         return this._dateAdded;
     }
+
+
 
     
 }

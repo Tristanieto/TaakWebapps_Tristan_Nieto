@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostDataService } from './post-data.service';
 import { Post } from './post/post.model';
 import { Subject } from 'rxjs/Subject';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   providers: [PostDataService],
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   private filterPostName: string;
   private filterPost$ = new Subject<string>();
 
-  private _posts;
+  private _posts: Post[];
   
 constructor(private _postDataService : PostDataService){
   this.filterPost$.subscribe(val => this.filterPostName = val);
@@ -25,12 +26,12 @@ get posts(){
 }
 
 ngOnInit() {
-  this._posts = this._postDataService.posts;
+  this._postDataService.posts.subscribe(items => this._posts = items);
 }
 
-// newPostAdded(recipe){
-//   this._postDataService.addNewPost(recipe);
-// }
+newPostAdded(post){
+  this._postDataService.addNewPost(post).subscribe(item => this._posts.push(item));
+}
 
 applyFilter(filter:string){
   this.filterPostName = filter;
