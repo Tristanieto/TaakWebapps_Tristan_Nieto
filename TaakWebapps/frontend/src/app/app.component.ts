@@ -10,32 +10,32 @@ import { post } from 'selenium-webdriver/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
 
-  private filterPostName: string;
-  private filterPost$ = new Subject<string>();
+  // private filterPostName: string;
+  // private filterPost$ = new Subject<string>();
 
-  private _posts: Post[];
+//   private _posts: Post[];
   
-constructor(private _postDataService : PostDataService){
-  this.filterPost$.subscribe(val => this.filterPostName = val);
-}
+// constructor(private _postDataService : PostDataService){
+//   this.filterPost$.subscribe(val => this.filterPostName = val);
+// }
 
-get posts(){
-  return this._posts;
-}
+// get posts(){
+//   return this._posts;
+// }
 
-ngOnInit() {
-  this._postDataService.posts.subscribe(items => this._posts = items);
-}
+// ngOnInit() {
+//   // this._postDataService.posts.subscribe(items => this._posts = items);
+// }
 
-newPostAdded(post){
-  this._postDataService.addNewPost(post).subscribe(item => this._posts.push(item));
-}
+// newPostAdded(post){
+//   this._postDataService.addNewPost(post).subscribe(item => this._posts.push(item));
+// }
 
-applyFilter(filter:string){
-  this.filterPostName = filter;
-}
+// applyFilter(filter:string){
+//   this.filterPostName = filter;
+// }
 
 
 }

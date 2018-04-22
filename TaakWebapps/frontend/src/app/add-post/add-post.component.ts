@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Post } from '../post/post.model';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { PostDataService } from '../post-data.service';
+import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -11,8 +14,9 @@ export class AddPostComponent implements OnInit {
   @Output() public newPost = new EventEmitter<Post>();
 
   private post: FormGroup;
+  public errorMsg: string;
 
-  constructor(private fb:  FormBuilder) { }
+  constructor(private fb:  FormBuilder, private _postDataService : PostDataService) { }
 
   ngOnInit() {
     this.post = this.fb.group({
@@ -20,12 +24,21 @@ export class AddPostComponent implements OnInit {
       inhoud: this.fb.control("", Validators.required)
     })
 
+    
+
   }
 
   onSubmit(){
-    this.newPost.emit(new Post(this.post.value.title, this.post.value.inhoud));
-    this.post.value.title = "";
-    this.post.value.inhoud = "";
+    let post = new Post(this.post.value.title, this.post.value.inhoud);
+    // this.newPost.emit(post);
+    
+    this._postDataService.addNewPost(post).subscribe(
+      () => {},
+      (error: HttpErrorResponse) => {
+        this.errorMsg = `Error ${error.status} while adding
+          post for ${post.title}: ${error.error}`;
+      }
+    );
   }
 
   addPost(newPostTitle: HTMLInputElement, newPostInhoud: HTMLInputElement): boolean {

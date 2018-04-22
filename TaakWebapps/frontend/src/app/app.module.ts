@@ -8,6 +8,7 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostListComponent } from './post-list/post-list.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     PostComponent,
     PostFilterPipe,
-    AddPostComponent
+    AddPostComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
