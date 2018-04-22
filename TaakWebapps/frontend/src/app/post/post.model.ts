@@ -4,11 +4,12 @@ export class Post{
     private _inhoud: string;
     private _dateAdded : Date;
 
-    constructor(title : string, inhoud : string){
+    constructor(title : string, inhoud? : string){
         this._title = title;
         this._inhoud = inhoud;
         this._dateAdded = new Date();
     }
+
 
     toJSON(){
         return {
