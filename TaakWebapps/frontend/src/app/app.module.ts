@@ -9,6 +9,20 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostListComponent } from './post-list/post-list.component';
+import { LoginComponent } from './user/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './user/register/register.component';
+import { HttpModule } from '@angular/http';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'register', component: RegisterComponent},
+  {path : 'login', component: LoginComponent},
+  { path: 'post-list', component: PostListComponent },
+  { path: 'add-post', component: AddPostComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'}
+];
 
 
 @NgModule({
@@ -17,12 +31,16 @@ import { PostListComponent } from './post-list/post-list.component';
     PostComponent,
     PostFilterPipe,
     AddPostComponent,
-    PostListComponent
+    PostListComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

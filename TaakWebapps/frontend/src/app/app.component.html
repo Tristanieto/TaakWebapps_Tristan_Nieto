@@ -1,56 +1,42 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
   crossorigin="anonymous">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+<div class="ui secondary pointing menu container">
+  <a class="item" routerLink="home">
+    Home
+  </a>
+  <a class="item" routerLink="post-list">
+    Posts
+  </a>
+  <a class="item" routerLink="News">
+    News
+  </a>
+  <h6 *ngIf='(currentUser | async) else loginEnRegister' class="right menu" routerLinkActive='active'>Welcome {{currentUser|async}}</h6>
+  <ng-template #loginEnRegister>
+      <div class="right menu">
+          <a class="ui item" routerLink="register">
+            Register
+          </a>
+          <a routerLink="login" class="ui item">
+            Login
+          </a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input (keyup) = 'filterPost$.next($event.target.value)' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search post">
-      <button type="button" class="form-control mr-sm-2" (click) = "applyFilter(filter.value)">Search</button>
-    </form> -->
-  </div>
-</nav>
+  </ng-template>
+</div>
+<router-outlet></router-outlet>
+
 
 <!-- <div class="container">
-<div class="ui basic segment">
-  <app-add-post (newPost)="newPostAdded($event)"></app-add-post>
-</div>
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to GameFreaks!</h1>
+      <p class="lead">Welcome to the biggest game forum on the world wide web</p>
+      <hr class="my-4">
+      <p>Join the forum by making an account and start talking to other people across the world</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Create your account</a>
+      </p>
+    </div>
+  </div> -->
 
-<div class="ui segment">
-  <div class="ui cards">
-    <app-post *ngFor='let localPost of posts | postFilter : filterPostName' [_post]='localPost'></app-post>
-  </div>
-</div>
-</div> -->
-<app-add-post></app-add-post>
-<app-post-list></app-post-list>
+<!-- <app-add-post></app-add-post>
+<app-post-list></app-post-list> -->

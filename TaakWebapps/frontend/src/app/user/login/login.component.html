@@ -1,0 +1,21 @@
+<!-- <label for="username">username:</label>
+<input type="text" id="username" formControlName='username'>
+<div class='ui pointing red basic label' 
+  *ngIf='user.get("username").errors?.userAlreadyExists 
+  && user.get("username").touched'>
+    a user with that name already exists
+</div> -->
+<div class="container">
+  <h3>Log in</h3>
+  <form class="ui form" [formGroup]="" (ngSubmit)='onSubmit()'>
+    <div class="field">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Username">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="password">
+    </div>
+    <button class="ui button" type="submit">Login</button>
+  </form>
+</div>

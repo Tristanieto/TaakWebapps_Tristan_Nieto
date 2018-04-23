@@ -1,0 +1,21 @@
+<div class="container">
+  <h3>Register</h3>
+  <div *ngIf='errorMsg' class="ui error message">{{errorMsg}}</div>
+  <form class="ui form" [formGroup]='user' (ngSubmit)='onSubmit()'>
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Username" formControlName="username">
+    </div>
+    <div formGroupName="passwordGroup">
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" formControlName="password">
+      </div>
+      <div class="field">
+        <label for="confirmpassword">Confirm password</label>
+        <input type="password" id="confirmpassword" formControlName="confirmPassword" placeholder="Confirm password">
+      </div>
+    </div>
+    <button class="ui positive right floated button" type="submit">Submit</button>
+  </form>
+</div>

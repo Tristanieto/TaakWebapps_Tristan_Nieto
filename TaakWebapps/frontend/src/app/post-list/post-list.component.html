@@ -1,4 +1,5 @@
-<div class="ui segment">
+<app-add-post></app-add-post>
+<div class="ui segment container">
     <div class="ui cards">
       <app-post *ngFor='let localPost of _posts | postFilter : filterPostName' [_post]='localPost'></app-post>
     </div>
