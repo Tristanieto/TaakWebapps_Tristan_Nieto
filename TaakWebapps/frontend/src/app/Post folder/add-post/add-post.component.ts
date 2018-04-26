@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Post } from '../post/post.model';
+import { Post } from '../post.model';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PostDataService } from '../post-data.service';
 import { HttpErrorResponse } from '@angular/common/http';

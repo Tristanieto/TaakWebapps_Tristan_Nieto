@@ -2,22 +2,22 @@
   crossorigin="anonymous">
 
 <div class="ui secondary pointing menu container">
-  <a class="item" routerLink="home">
+  <a class="item" routerLink="home" routerLinkActive='active'>
     Home
   </a>
-  <a class="item" routerLink="post-list">
+  <a class="item" routerLink="post-list" routerLinkActive='active'>
     Posts
   </a>
-  <a class="item" routerLink="News">
+  <a class="item" routerLink="News" routerLinkActive='active'>
     News
   </a>
   <h6 *ngIf='(currentUser | async) else loginEnRegister' class="right menu" routerLinkActive='active'>Welcome {{currentUser|async}}</h6>
   <ng-template #loginEnRegister>
       <div class="right menu">
-          <a class="ui item" routerLink="register">
+          <a class="ui item" routerLink="register" routerLinkActive='active'>
             Register
           </a>
-          <a routerLink="login" class="ui item">
+          <a routerLink="login" class="ui item" routerLinkActive='active'>
             Login
           </a>
         </div>

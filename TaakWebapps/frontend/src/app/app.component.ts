@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PostDataService } from './post-data.service';
-import { Post } from './post/post.model';
+import { PostDataService } from './Post folder/post-data.service';
+import { Post } from './Post folder/post.model';
 import { Subject } from 'rxjs/Subject';
 import { post } from 'selenium-webdriver/http';
 
 @Component({
-  providers: [PostDataService],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

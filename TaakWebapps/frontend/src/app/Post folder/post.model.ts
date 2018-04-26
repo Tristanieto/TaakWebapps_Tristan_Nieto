@@ -1,5 +1,5 @@
 export class Post{
-
+    private _id: String;
     private _title: string;
     private _inhoud: string;
     private _dateAdded : Date;
@@ -10,6 +10,14 @@ export class Post{
         this._dateAdded = new Date();
     }
 
+    static fromJson(json: any): Post {
+        const rec = new Post(
+            json.title,
+            json.inhoud,
+        );
+        rec._id = json._id;
+        return rec;
+    }
 
     toJSON(){
         return {
