@@ -29,6 +29,6 @@ const routes = [
         PostListComponent,
         PostDetailComponent
     ],
-    providers: [PostDataService]
+    providers: [PostDataService, PostResolver]
 })
 export class PostModule{}
