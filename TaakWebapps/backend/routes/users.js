@@ -3,6 +3,7 @@ var router = express.Router();
 let mongoose = require('mongoose');
 let User = mongoose.model('User');
 let passport = require('passport');
+let LocalStrategy = require('passport-local').Strategy;
 
 /* GET users listing. */
 // router.get('/', function (req, res, next) {
@@ -22,11 +23,10 @@ router.post('/register', function (req, res, next) {
   });
 });
 
-router.post('./login', function (req, res, next) {
+router.post('/login', function (req, res, next) {
   if (!req.body.username || !req.body.password) {
     return res.status(400).json({ message: 'Please fill out all the fields' });
   }
-
   passport.authenticate('local', function (err, user, info) {
     if (err) { return next(err); }
     if (user) {

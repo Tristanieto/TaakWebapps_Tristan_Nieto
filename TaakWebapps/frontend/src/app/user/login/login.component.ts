@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl(this.authService.redirectUrl);
               this.authService.redirectUrl = undefined;
             } else {
-              this.router.navigate(['/recipe/list']);
+              this.router.navigate(['/home']);
             }
           } else {
             this.errorMsg = `Could not login`;
@@ -63,9 +63,7 @@ export class LoginComponent implements OnInit {
               this.user.value.username
             }: ${err.error.message}`;
           } else {
-            this.errorMsg = `Error ${err.status} while trying to login user ${
-              this.user.value.username
-            }: ${err.error}`;
+            this.errorMsg = "Username and/or password are incorrect! Try again!"
           }
         }
       );
