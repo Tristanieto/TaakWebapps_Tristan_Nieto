@@ -16,6 +16,7 @@ import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { PostModule } from './Post folder/post.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AuthGuardService } from './user/auth-guard.service';
 
 // const appRoutes: Routes = [
 //   {path: 'home', component: HomeComponent},
@@ -36,9 +37,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    PostModule,
     AppRoutingModule
-    //Slide 20 verder doen
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -12,9 +12,9 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostResolver } from "./Post-resolver";
 import { httpInterceptorProviders } from "../http-interceptors";
 const routes = [
-    { path: 'post-list', component: PostListComponent},
-    { path: 'add-post', component: AddPostComponent},
-    { path: 'Post-detail/:id', component: PostDetailComponent, resolve: {post: PostResolver}}
+    { path: 'list', component: PostListComponent},
+    { path: 'add', component: AddPostComponent},
+    { path: ':id', component: PostDetailComponent, resolve: {post: PostResolver}}
 ]
 @NgModule({
     imports: [
@@ -30,6 +30,6 @@ const routes = [
         PostListComponent,
         PostDetailComponent
     ],
-    providers: [PostDataService, PostResolver]
+    providers: [httpInterceptorProviders,PostDataService, PostResolver]
 })
 export class PostModule{}
