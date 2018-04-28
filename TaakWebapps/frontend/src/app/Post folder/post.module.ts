@@ -10,6 +10,7 @@ import { PostDataService } from "./post-data.service";
 import { RouterModule } from "@angular/router";
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostResolver } from "./Post-resolver";
+import { httpInterceptorProviders } from "../http-interceptors";
 const routes = [
     { path: 'post-list', component: PostListComponent},
     { path: 'add-post', component: AddPostComponent},
