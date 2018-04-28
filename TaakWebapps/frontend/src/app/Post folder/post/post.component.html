@@ -1,9 +1,17 @@
-<div>
-  <h2>{{_post.title}}</h2>
-</div>
-<div>
-  <p>{{_post.inhoud}}</p>
-</div>
-<div>
-  <p> Toegevoegd op {{_post.dateAdded | date}}</p>
+<div class="ui raised segment opmaakSegment">
+  <div class="ui items">
+    <div class="item">
+      <div class="content">
+        <div class="header">
+          <h3>{{_post.title}}</h3>
+        </div>
+        <div class="description">
+          <p>{{_post.inhoud}}</p>
+        </div>
+        <div class="extra">
+          <p>Toegevoegd op {{_post.dateAdded | date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

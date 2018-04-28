@@ -14,23 +14,23 @@
 </div> -->
 <div class="container">
   <form [formGroup]='post' (ngSubmit)='onSubmit()'>
-    <h3 class="ui header">Voeg post toe</h3>
+    <h3 class="ui header">Add a new post</h3>
     <div class="form-group">
-      <label for="title_id">titel</label>
+      <label for="title_id">Title: </label>
       <input type="text" class="form-control" id="title_id" placeholder="title" formControlName='title'>
     </div>
     <div *ngIf='post.get("title").errors?.required && post.get("title").touched' class='ui pointing red basic label'>
-      Dit veld is verplicht!
+      This is required!
     </div>
     <div class="form-group">
       <label for="inhoud_id">Inhoud</label>
       <input type="text" class="form-control" id="inhoud_id" placeholder="What's on your mind...?" formControlName="inhoud">
     </div>
     <div *ngIf='post.get("inhoud").errors?.required && post.get("inhoud").touched' class='ui pointing red basic label'>
-      Dit veld is verplicht!
+        This is required!
     </div>
     <br>
-    <button type="submit" class="btn btn-primary">Voeg toe</button>
+    <button type="submit" class="btn btn-primary">Add post</button>
   </form>
 </div>
 <!-- <form [formGroup] = 'post' (ngSubmit)='onSubmit()'>

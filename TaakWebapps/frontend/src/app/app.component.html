@@ -12,7 +12,10 @@
     News
   </a>
   <div *ngIf='(currentUser | async) else loginEnRegister' class="right menu">
-      <a class="ui item" routerLinkActive='active' routerLink='logout'>Welcome {{currentUser|async}}</a>
+      <h6 class="ui item" routerLinkActive='active'>Welcome {{currentUser|async}}</h6>
+      <a class="ui item" routerLink="logout">
+        Logout
+      </a>
   </div>
   <ng-template #loginEnRegister>
       <div class="right menu">
