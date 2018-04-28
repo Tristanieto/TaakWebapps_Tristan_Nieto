@@ -1,40 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { PostDataService } from './Post folder/post-data.service';
-import { Post } from './Post folder/post.model';
-import { Subject } from 'rxjs/Subject';
-import { post } from 'selenium-webdriver/http';
+import { AuthenticationService } from './user/authentication.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: []
 })
-export class AppComponent{
+export class AppComponent {
+
+  constructor(private authService: AuthenticationService) {
+
+  }
+
+  get currentUser(): Observable<String> {
+    return this.authService.user$;
+  }
 
   // private filterPostName: string;
   // private filterPost$ = new Subject<string>();
 
-//   private _posts: Post[];
-  
-// constructor(private _postDataService : PostDataService){
-//   this.filterPost$.subscribe(val => this.filterPostName = val);
-// }
+  //   private _posts: Post[];
 
-// get posts(){
-//   return this._posts;
-// }
+  // constructor(private _postDataService : PostDataService){
+  //   this.filterPost$.subscribe(val => this.filterPostName = val);
+  // }
 
-// ngOnInit() {
-//   // this._postDataService.posts.subscribe(items => this._posts = items);
-// }
+  // get posts(){
+  //   return this._posts;
+  // }
 
-// newPostAdded(post){
-//   this._postDataService.addNewPost(post).subscribe(item => this._posts.push(item));
-// }
+  // ngOnInit() {
+  //   // this._postDataService.posts.subscribe(items => this._posts = items);
+  // }
 
-// applyFilter(filter:string){
-//   this.filterPostName = filter;
-// }
+  // newPostAdded(post){
+  //   this._postDataService.addNewPost(post).subscribe(item => this._posts.push(item));
+  // }
+
+  // applyFilter(filter:string){
+  //   this.filterPostName = filter;
+  // }
 
 
 }

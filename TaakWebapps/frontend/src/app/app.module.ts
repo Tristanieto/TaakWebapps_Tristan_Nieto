@@ -17,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { PostModule } from './Post folder/post.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AuthGuardService } from './user/auth-guard.service';
+import { httpInterceptorProviders } from './http-interceptors';
+import { AuthenticationService } from './user/authentication.service';
+import { LogoutComponent } from './user/logout/logout.component';
 
 // const appRoutes: Routes = [
 //   {path: 'home', component: HomeComponent},
@@ -31,7 +34,7 @@ import { AuthGuardService } from './user/auth-guard.service';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent, LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { AuthGuardService } from './user/auth-guard.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthenticationService],
   bootstrap: [AppComponent],
   exports: [
     RouterModule

@@ -1,4 +1,4 @@
-<div *ngIf='(currentUser | async); else NotLoggedIn'>
+<div *ngIf='(currentUser | async) else NotLoggedIn'>
     <div class="container">
         <div class="jumbotron">
           <h1 class="display-4">Welcome back {{currentUser|async}}!</h1>
@@ -18,5 +18,17 @@
         <a class="btn btn-primary btn-lg" routerLink='/register' role="button">Create your account</a>
       </p>
     </div>
+    <hr>
+    <h2>What is gameFreaks?</h2>
+    <p>GameFreaks is a website designed to bring gamers from different continents together. Do you want to see what someone from Europe 
+      is saying about your favorite game? No Problem! Just go to the post page to find thousands of posts and start searching!
+    </p>
+    <p>
+      Watch out! If you want to visit the page you need to have an account! When logged in you can see the posts and even post something yourself!
+    </p>
+    <p>I hope you'll enjoy gameFreaks and wish you luck!</p>
+    <p>
+      Tristan Nieto
+    </p>
   </div>
 </ng-template>

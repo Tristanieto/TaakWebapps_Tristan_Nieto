@@ -10,7 +10,9 @@ import { PostDataService } from "./post-data.service";
 import { RouterModule } from "@angular/router";
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { PostResolver } from "./Post-resolver";
-import { httpInterceptorProviders } from "../http-interceptors";
+import { httpInterceptorProviders } from "../http-interceptors/index";
+import { AuthenticationService } from "../user/authentication.service";
+import { AuthGuardService } from "../user/auth-guard.service";
 const routes = [
     { path: 'list', component: PostListComponent},
     { path: 'add', component: AddPostComponent},
