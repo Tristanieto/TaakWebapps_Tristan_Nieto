@@ -49,5 +49,4 @@ export class Post {
         return this._addedBy;
     }
 
-
 }
