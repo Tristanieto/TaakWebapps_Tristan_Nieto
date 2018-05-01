@@ -3,6 +3,8 @@ import { Post } from '../post.model';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PostDataService } from '../post-data.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthenticationService } from '../../user/authentication.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-add-post',
@@ -16,7 +18,7 @@ export class AddPostComponent implements OnInit {
   private post: FormGroup;
   public errorMsg: string;
 
-  constructor(private fb:  FormBuilder, private _postDataService : PostDataService) { }
+  constructor(private fb:  FormBuilder, private _postDataService : PostDataService, private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.post = this.fb.group({
@@ -46,5 +48,7 @@ export class AddPostComponent implements OnInit {
     this.newPost.emit(post);
     return false;
   }
+
+ 
 
 }

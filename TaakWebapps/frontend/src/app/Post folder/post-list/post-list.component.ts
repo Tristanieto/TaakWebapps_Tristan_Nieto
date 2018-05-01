@@ -36,4 +36,6 @@ export class PostListComponent implements OnInit {
     return this._posts;
   }
 
+  
+
 }

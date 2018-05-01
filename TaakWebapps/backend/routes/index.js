@@ -28,6 +28,7 @@ router.get('/API/posts/:id', auth ,function (req, res, next) {
 
 router.post('/API/posts/',auth, function (req, res, next) {
   let post = new Post(req.body);
+  post.addedBy = req.user.username;
   post.save(function (err, rec) {
     if (err) { return next(err); }
     res.json(rec);

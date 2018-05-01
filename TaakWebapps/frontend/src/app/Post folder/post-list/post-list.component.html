@@ -6,12 +6,9 @@
 
 <div class="container">
   <div>
-    <div class="ui input opmaakFilter">
-      <input (keyup)='filterPost$.next($event.target.value)' type='text' id='filter' name='filter' placeholder='filter recipe name...'>
+    <div class="ui input right">
+      <input (keyup)='filterPost$.next($event.target.value)' type='text' id='filter' name='filter' placeholder='Search'>
     </div>
-  </div>
-  <div>
-    <app-add-post></app-add-post>
   </div>
   <div class="ui relaxed divided list">
     <app-post *ngFor='let localPost of _posts | postFilter : filterPostName' [_post]='localPost'></app-post>

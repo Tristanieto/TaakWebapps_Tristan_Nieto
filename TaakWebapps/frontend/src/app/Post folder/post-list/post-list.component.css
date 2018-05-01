@@ -1,3 +1,7 @@
 .opmaakFilter{
-    float: right;
+    text-align: center;
+}
+
+.addPostButton{
+    float: left;
 }

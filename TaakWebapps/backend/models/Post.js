@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var PostSchema = new mongoose.Schema({
     title: String,
     inhoud: String,
-    dateAdded: Date
+    dateAdded: Date,
+    addedBy: String
 });
 
 mongoose.model('Post', PostSchema);
