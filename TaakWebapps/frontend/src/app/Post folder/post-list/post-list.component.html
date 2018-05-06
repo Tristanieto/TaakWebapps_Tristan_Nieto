@@ -5,9 +5,12 @@
 </div> -->
 
 <div class="container">
-  <div>
+  <div >
     <div class="ui input right">
       <input (keyup)='filterPost$.next($event.target.value)' type='text' id='filter' name='filter' placeholder='Search'>
+    </div>
+    <div class="ui btn addPostButton">
+      <button routerLink='/post/add' class=" btn btn-primary">Add post</button>
     </div>
   </div>
   <div class="ui relaxed divided list">

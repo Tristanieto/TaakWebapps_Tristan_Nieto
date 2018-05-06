@@ -3,5 +3,7 @@
 }
 
 .addPostButton{
-    float: left;
+    float: right;
+    margin-right: 25px 
 }
+

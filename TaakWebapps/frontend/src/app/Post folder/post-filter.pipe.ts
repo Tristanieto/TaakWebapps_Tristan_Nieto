@@ -10,7 +10,8 @@ export class PostFilterPipe implements PipeTransform {
     if(!searchValue || searchValue.length === 0){
       return posts;
     }else{
-      return posts.filter(p => p.title.toLowerCase().includes(searchValue.toLowerCase()));
+      return posts.filter(p => p.title.toLowerCase().includes(searchValue.toLowerCase()) 
+      || p.addedBy.toLowerCase().includes(searchValue.toLowerCase()));
     }
   }
 

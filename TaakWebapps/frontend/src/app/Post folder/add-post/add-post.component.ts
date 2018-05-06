@@ -5,6 +5,7 @@ import { PostDataService } from '../post-data.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthenticationService } from '../../user/authentication.service';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-post',
@@ -18,29 +19,32 @@ export class AddPostComponent implements OnInit {
   private post: FormGroup;
   public errorMsg: string;
 
-  constructor(private fb:  FormBuilder, private _postDataService : PostDataService, private authService: AuthenticationService) { }
+  constructor(private fb: FormBuilder, private _postDataService: PostDataService, private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     this.post = this.fb.group({
-      title: this.fb.control("",Validators.required),
+      title: this.fb.control("", Validators.required),
       inhoud: this.fb.control("", Validators.required)
     })
 
-    
+
 
   }
 
-  onSubmit(){
+  onSubmit() {
     let post = new Post(this.post.value.title, this.post.value.inhoud);
     // this.newPost.emit(post);
-    
+
     this._postDataService.addNewPost(post).subscribe(
-      () => {},
+      () => { },
       (error: HttpErrorResponse) => {
         this.errorMsg = `Error ${error.status} while adding
           post for ${post.title}: ${error.error}`;
       }
     );
+
+    this.router.navigate(['/post/list'])
+
   }
 
   addPost(newPostTitle: HTMLInputElement, newPostInhoud: HTMLInputElement): boolean {
@@ -49,6 +53,6 @@ export class AddPostComponent implements OnInit {
     return false;
   }
 
- 
+
 
 }
