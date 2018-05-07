@@ -11,6 +11,7 @@ mongoose.connect('mongodb://localhost/Taakdb');
 
 require('./models/Post');
 require('./models/User');
+require('./models/Comment');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');

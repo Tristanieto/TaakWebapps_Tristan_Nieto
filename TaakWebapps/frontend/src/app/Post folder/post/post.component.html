@@ -3,13 +3,16 @@
     <div class="item">
       <div class="content">
         <div class="header">
-          <h3>{{_post.title}}</h3>
+          <a routerLink='/post/{{_post.id}}'>{{_post.title}}</a>
         </div>
         <div class="description">
           <p>{{_post.inhoud}}</p>
         </div>
         <div class="extra">
           <p>Added on {{_post.dateAdded | date}} by {{_post.addedBy}}</p>
+        </div>
+        <div class="extra">
+          <p>Number of comments: {{_post.aantalComments}}</p>
         </div>
       </div>
     </div>

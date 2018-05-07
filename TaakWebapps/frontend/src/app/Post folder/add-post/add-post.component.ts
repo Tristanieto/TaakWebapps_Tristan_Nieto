@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AuthenticationService } from '../../user/authentication.service';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { Comment } from '../comment/comment.model';
 
 @Component({
   selector: 'app-add-post',
@@ -32,6 +33,7 @@ export class AddPostComponent implements OnInit {
   }
 
   onSubmit() {
+    let commentsArray: Comment[];
     let post = new Post(this.post.value.title, this.post.value.inhoud);
     // this.newPost.emit(post);
 
@@ -47,11 +49,11 @@ export class AddPostComponent implements OnInit {
 
   }
 
-  addPost(newPostTitle: HTMLInputElement, newPostInhoud: HTMLInputElement): boolean {
-    const post = new Post(newPostTitle.value, newPostInhoud.value);
-    this.newPost.emit(post);
-    return false;
-  }
+  // addPost(newPostTitle: HTMLInputElement, newPostInhoud: HTMLInputElement): boolean {
+  //   const post = new Post(newPostTitle.value, newPostInhoud.value, this.post.value.comments);
+  //   this.newPost.emit(post);
+  //   return false;
+  // }
 
 
 

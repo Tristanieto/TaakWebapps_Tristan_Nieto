@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Post } from './post.model';
-
+import { Comment } from './comment/comment.model'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+import { post } from 'selenium-webdriver/http';
 
 @Injectable()
 export class PostDataService {
@@ -31,6 +32,11 @@ export class PostDataService {
     return this.http
       .get(`${this._appUrl}/${id}`)
       .pipe(map(Post.fromJson));
+  }
+
+  addCommentToPost(comment: Comment, post: Post): Observable<Comment>{
+    return this.http
+    .post(`${this._appUrl}${post.id}/comments`, comment).pipe(map(Comment.fromJSON))
   }
 
 }
