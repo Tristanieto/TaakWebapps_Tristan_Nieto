@@ -1,14 +1,23 @@
 <div class="container">
-  <div class="segment">
+  <div class="segment ui raised opmaakSegment">
     <div class="content">
-      <h3>{{_post.title}}</h3>
-      <div class="meta">
+      <h2>{{_post.title}}</h2>
+      <h4>{{_post.inhoud}}</h4>
+      <!-- <div class="meta">
         <span class="date">{{_post.dateAdded | date}}</span>
-      </div>
-      <form [formGroup]='comment' (ngSubmit)='onSubmit()'>
-        <input type="text" formControlName="inhoud" placeholder="Place a comment...">
-        <button type="submit">Add comment</button>
-      </form>
+      </div> -->
+      <ul class="ui list">
+        <li *ngFor="let com of post.comments">
+          <app-comment [_comment]='com'></app-comment>
+        </li>
+      </ul>
+      <form id="commentInput" class="ui form" [formGroup]='comment' (ngSubmit)='onSubmit()'>
+          <div class="buttonInside">
+            <input type="text" formControlName="inhoud" placeholder="Place a comment...">
+            <button [disabled]='!comment.valid' class="btn btn-primary" type="submit">Add comment</button>
+          </div>
+        </form>
+        
     </div>
   </div>
 </div>

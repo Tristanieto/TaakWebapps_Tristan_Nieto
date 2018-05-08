@@ -13,6 +13,7 @@ import { PostResolver } from "./Post-resolver";
 import { httpInterceptorProviders } from "../http-interceptors/index";
 import { AuthenticationService } from "../user/authentication.service";
 import { AuthGuardService } from "../user/auth-guard.service";
+import { CommentComponent } from "./comment/comment.component";
 const routes = [
     { path: 'list', component: PostListComponent},
     { path: 'add', component: AddPostComponent},
@@ -30,7 +31,8 @@ const routes = [
         AddPostComponent,
         PostFilterPipe,
         PostListComponent,
-        PostDetailComponent
+        PostDetailComponent,
+        CommentComponent
     ],
     providers: [httpInterceptorProviders,PostDataService, PostResolver]
 })

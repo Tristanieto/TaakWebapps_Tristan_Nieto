@@ -48,12 +48,10 @@ router.get('/API/posts/:id', function (req, res, next) {
 });
 
 router.post('/API/posts/:post/comments', function (req, res, next) {
-  
   let com = new Comment(req.body);
-
   com.save(function(err, comment){
     if(err) return next(err);
-
+    
     req.post.comments.push(comment);
     req.post.save(function(err,rec){
       if(err) return next(err);

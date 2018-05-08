@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Comment } from './comment.model'
 
 @Component({
   selector: 'app-comment',
@@ -12,6 +13,10 @@ export class CommentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get comment(){
+    return this._comment;
   }
 
 }

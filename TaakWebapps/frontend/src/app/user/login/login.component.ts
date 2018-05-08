@@ -23,7 +23,7 @@ function passwordValidator(): ValidatorFn {
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers:[AuthenticationService]
+  providers:[]
 })
 export class LoginComponent implements OnInit {
 

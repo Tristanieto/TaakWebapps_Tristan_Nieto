@@ -20,7 +20,6 @@ export class PostDetailComponent implements OnInit {
   ngOnInit() {
     // this.route.paramMap.subscribe(pa => this.postDataService.getPost(pa.get('id'))
     // .subscribe(item => this._post = item));
-
     this.route.data.subscribe(item => this._post = item['post']);
 
     this.comment = this.fb.group({
