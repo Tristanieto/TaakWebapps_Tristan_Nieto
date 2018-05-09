@@ -32,3 +32,17 @@ button{
 .ng-valid:not(form) {
   border-left: 5px solid #3ac541 !important; 
 }
+
+span{
+  font-size: 12px;
+  font-weight: normal;
+}
+
+ul{
+  list-style-type: none;
+  margin-left: -5px;
+}
+
+li{
+  margin-bottom: 5px;
+}

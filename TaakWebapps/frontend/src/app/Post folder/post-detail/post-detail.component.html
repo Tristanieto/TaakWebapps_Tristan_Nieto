@@ -1,12 +1,12 @@
 <div class="container">
   <div class="segment ui raised opmaakSegment">
     <div class="content">
-      <h2>{{_post.title}}</h2>
-      <h4>{{_post.inhoud}}</h4>
+      <h2>{{_post.title}} <span class="date">{{_post.dateAdded | date}}</span></h2>
       <!-- <div class="meta">
         <span class="date">{{_post.dateAdded | date}}</span>
       </div> -->
-      <ul class="ui list">
+      <h4>{{_post.inhoud}}</h4>
+      <ul>
         <li *ngFor="let com of post.comments">
           <app-comment [_comment]='com'></app-comment>
         </li>

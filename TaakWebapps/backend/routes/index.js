@@ -24,7 +24,7 @@ router.get('/API/posts/:id', auth, function (req, res, next) {
       return next(new Error('Not found: ' + req.params.id));
     }
     res.json(post);
-  });
+  }).populate('comments');
 });
 
 router.param('post', function (req, res, next, id) {
@@ -47,8 +47,9 @@ router.get('/API/posts/:id', function (req, res, next) {
   req.json(req.post)
 });
 
-router.post('/API/posts/:post/comments', function (req, res, next) {
+router.post('/API/posts/:post/comments',auth, function (req, res, next) {
   let com = new Comment(req.body);
+  com.addedBy = req.user.username;
   com.save(function(err, comment){
     if(err) return next(err);
     

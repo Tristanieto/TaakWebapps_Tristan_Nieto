@@ -2,6 +2,7 @@
     margin-bottom: 10px !important;
 }
 
-a{
-    text-decoration: none !important;
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration-style: none !important;
 }

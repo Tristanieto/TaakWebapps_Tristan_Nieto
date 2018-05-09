@@ -5,7 +5,7 @@ export class Comment {
 
 
     static fromJSON(json): Comment {
-        const rec = new Comment(json.inhoud);
+        const rec = new Comment(json._inhoud);
         rec._id = json._id;
         rec._addedBy = json.addedBy
         return rec;
@@ -27,10 +27,19 @@ export class Comment {
         this._inhoud = inhoud;
     }
 
+    set addedBy(user : string){
+        this._addedBy = user;
+    }
+
+    get addedBy(): string{
+        return this._addedBy
+    }
+
     ToJSON() {
         return {
             _id: this._id,
-            inhoud: this._inhoud
+            _inhoud: this._inhoud,
+            _addedBy: this._addedBy
         }
     }
 
