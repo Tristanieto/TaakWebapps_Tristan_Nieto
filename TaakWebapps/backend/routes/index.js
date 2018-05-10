@@ -27,6 +27,20 @@ router.get('/API/posts/:id', auth, function (req, res, next) {
   }).populate('comments');
 });
 
+router.delete('/API/posts/:post', auth, function(req, res, next){
+  Comment.remove({_id: {$in: req.post.comments}}, function(err){
+    if (err){
+      return next(err);
+    }
+    req.post.remove(function(err){
+      if(err){
+        return next(err);
+      }
+      res.json(req.post)
+    })
+  })
+});
+
 router.param('post', function (req, res, next, id) {
   let query = Post.findById(id).populate('comments');
   query.exec(function (err, post) {

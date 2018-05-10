@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="ui relaxed divided list">
-    <app-post *ngFor='let localPost of _posts | postFilter : filterPostName' [_post]='localPost'></app-post>
+    <app-post *ngFor='let localPost of _posts | postFilter : filterPostName' [_post]='localPost' (deletePost)='removePost($event)'></app-post>
   </div>
 </div>
 

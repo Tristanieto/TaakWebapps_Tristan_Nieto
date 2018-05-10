@@ -3,7 +3,7 @@
     <div class="item">
       <div class="content">
           <div *ngIf='(currentUser | async) == _post.addedBy'>
-              <button class="ui icon button opmaakButton">
+              <button class="ui icon button opmaakButton" (click)="removePost()">
                 <i class="trash outline icon"></i>
               </button>
             </div>

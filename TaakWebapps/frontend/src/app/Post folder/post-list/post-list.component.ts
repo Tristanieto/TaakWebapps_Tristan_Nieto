@@ -4,6 +4,7 @@ import { PostDataService } from '../post-data.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
 import { distinctUntilChanged, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -17,7 +18,7 @@ export class PostListComponent implements OnInit {
 
   private _posts : Post[];
 
-  constructor(private _postDataService: PostDataService) {
+  constructor(private _postDataService: PostDataService, private router: Router) {
 
     this.filterPost$.pipe(
       distinctUntilChanged(),
@@ -34,6 +35,11 @@ export class PostListComponent implements OnInit {
 
   get posts(){
     return this._posts;
+  }
+
+  removePost(post: Post){
+    this._postDataService.removePost(post).subscribe();
+    this.ngOnInit();
   }
 
   
