@@ -6,3 +6,7 @@ a:hover, a:visited, a:link, a:active
 {
     text-decoration-style: none !important;
 }
+
+.opmaakButton{
+    float: right;
+}

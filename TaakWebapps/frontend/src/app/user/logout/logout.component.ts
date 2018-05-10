@@ -14,7 +14,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit() {
     this.authService.logout();
-    // this.playAudio();
+    this.playAudio();
 
   }
 
