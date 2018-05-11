@@ -70,7 +70,7 @@ router.post('/API/posts/:post/comments',auth, function (req, res, next) {
     req.post.comments.push(comment);
     req.post.save(function(err,rec){
       if(err) return next(err);
-      res.json(comment);
+      res.json(req.post);
     })
   })
 

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="segment ui raised opmaakSegment">
     <div class="content">
-      <h2>{{_post.title}} <span class="date">{{_post.dateAdded | date}}</span></h2>
+      <h2>{{_post.title}} <span class="date">{{_post.dateAdded | date}} by {{_post.addedBy}}</span></h2>
       <!-- <div class="meta">
         <span class="date">{{_post.dateAdded | date}}</span>
       </div> -->
@@ -11,13 +11,12 @@
           <app-comment [_comment]='com'></app-comment>
         </li>
       </ul>
-      <form id="commentInput" class="ui form" [formGroup]='comment' (ngSubmit)='onSubmit()'>
+      <form class="ui form" [formGroup]='comment' (ngSubmit)='onSubmit()'>
           <div class="buttonInside">
-            <input type="text" formControlName="inhoud" placeholder="Place a comment...">
+            <input id="inputfield" type="text" formControlName="inhoud" placeholder="Place a comment...">
             <button [disabled]='!comment.valid' class="btn btn-primary" type="submit">Add comment</button>
           </div>
-        </form>
-        
+        </form>  
     </div>
   </div>
 </div>

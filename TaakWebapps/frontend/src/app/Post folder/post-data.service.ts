@@ -34,9 +34,9 @@ export class PostDataService {
       .pipe(map(Post.fromJson));
   }
 
-  addCommentToPost(comment: Comment, post: Post): Observable<Comment>{
+  addCommentToPost(comment: Comment, post: Post): Observable<Post>{
     return this.http
-    .post(`${this._appUrl}${post.id}/comments`, comment).pipe(map(Comment.fromJSON))
+    .post(`${this._appUrl}${post.id}/comments`, comment).pipe(map(Post.fromJson))
   }
 
   removePost(rec : Post): Observable<Post>{

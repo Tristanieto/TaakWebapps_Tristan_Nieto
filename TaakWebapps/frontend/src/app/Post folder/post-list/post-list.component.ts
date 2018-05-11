@@ -38,8 +38,9 @@ export class PostListComponent implements OnInit {
   }
 
   removePost(post: Post){
-    this._postDataService.removePost(post).subscribe();
-    this.ngOnInit();
+    this._postDataService.removePost(post).subscribe(
+    item => (this._posts = this._posts.filter(val => item.id !== val.id)));
+    
   }
 
   

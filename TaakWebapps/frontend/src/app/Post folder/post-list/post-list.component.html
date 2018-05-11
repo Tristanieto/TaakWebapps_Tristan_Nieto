@@ -5,7 +5,7 @@
 </div> -->
 
 <div class="container">
-  <div >
+  <div>
     <div class="ui input right">
       <input (keyup)='filterPost$.next($event.target.value)' type='text' id='filter' name='filter' placeholder='Search'>
     </div>
@@ -13,8 +13,12 @@
       <button routerLink='/post/add' class=" btn btn-primary">Add post</button>
     </div>
   </div>
-  <div class="ui relaxed divided list">
-    <app-post *ngFor='let localPost of _posts | postFilter : filterPostName' [_post]='localPost' (deletePost)='removePost($event)'></app-post>
+  <div *ngIf='(posts.size == 0) else posts' class="noPosts">
+    <p>There are no posts available!</p>
   </div>
+  <ng-template #posts>
+    <div class="ui relaxed divided list">
+      <app-post *ngFor='let localPost of _posts | postFilter : filterPostName' [_post]='localPost' (deletePost)='removePost($event)'></app-post>
+    </div>
+  </ng-template>
 </div>
-

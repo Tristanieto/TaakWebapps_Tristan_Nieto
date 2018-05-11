@@ -8,9 +8,6 @@
   <a class="item" routerLink="post/list" routerLinkActive='active'>
     Posts
   </a>
-  <a class="item" routerLink="News" routerLinkActive='active'>
-    News
-  </a>
   <div *ngIf='(currentUser | async) else loginEnRegister' class="right menu">
       <h6 class="ui item" routerLinkActive='active'>Welcome {{currentUser|async}}</h6>
       <a class="ui item" routerLink="logout">

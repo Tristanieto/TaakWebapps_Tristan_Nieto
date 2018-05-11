@@ -2,3 +2,7 @@ span{
     font-size: 12px;
     font-weight: normal;
 }
+
+h5{
+    word-wrap: break-word;
+}
